@@ -11,10 +11,10 @@ root.render(
   <React.StrictMode>
     {/* <App /> */}
     <h1>Index principal</h1>
-    <hr/>
-    <MenuRutas/>
-    <Router/>
-    <hr/>
+    <hr />
+    <MenuRutas />
+    <Router />
+    <hr />
     <h2>Pie de pagina</h2>
   </React.StrictMode>
 );
