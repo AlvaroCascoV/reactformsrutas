@@ -9,6 +9,7 @@ import TablaMultiplicar from './TablaMultiplicar'
 import TablaMultiplicarSolucion from './TablaMultiplicarSolucion'
 import TablaMultiplicarv2 from './TablaMultiplicarv2'
 import TablaMultiplicarv2Solucion from './TablaMultiplicarv2Solucion'
+import SeleccionMultiple from './SeleccionMultiple'
 
 export default class Router extends Component {
     render() {
@@ -24,6 +25,7 @@ export default class Router extends Component {
                     <Route path='/tablamultiplicarsolucion' element={<TablaMultiplicarSolucion/>}/>
                     <Route path='/tablamultiplicarv2' element={<TablaMultiplicarv2/>}/>
                     <Route path='/tablamultiplicarv2solucion' element={<TablaMultiplicarv2Solucion/>}/>
+                    <Route path='/multiple' element={<SeleccionMultiple/>}/>
                 </Routes>
             </BrowserRouter>
         )

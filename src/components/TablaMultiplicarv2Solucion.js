@@ -6,66 +6,64 @@ export default class TablaMultiplicarv2Solucion extends Component {
         event.preventDefault();
         let aux = [];
         let numero = parseInt(this.selectNumero.current.value);
-        for (let i = 1; i <= 10; i++) {
+        for (var i = 1; i <= 10; i++) {
             var operacion = numero + " * " + i;
             var resultado = numero * i;
-            let dato = {
-                operacion: operacion,
-                resultado: resultado
-            }
-            aux.push(dato);
+            aux.push(<tr>
+                <td>{operacion}</td>
+                <td>{resultado}</td>
+            </tr>)
         }
         this.setState({
             tabla: aux
         })
     }
-    numeros= [8, 4, 6, 9]
     generarRandoms = () => {
-        console.log("select generado")
-        for (let i = 0; i <= 5; i++) {
-            let random = parseInt((Math.random() * 50) + 1)
-            this.numeros.push(random)
+        for (var i = 1; i <= 5; i++) {
+            var random = parseInt(Math.random() * 50) + 1;
+            this.numeros.push(random);
         }
     }
     state = {
-        tabla: [],
+        tabla: []
     }
+    numeros = [8, 4, 6, 9]
+    mensaje = "State solo cuando cambiemos"
     render() {
         return (
             <div>
-                <h1 style={{color:"red"}}>Tabla de multiplicar V2 Solucion</h1>
-                {()=>this.generarRandoms()}
+                <h1 style={{ color: "red" }}>Tabla Multiplicar V2 Solucion {this.mensaje}</h1>
+                {this.generarRandoms()}
+                <button onClick={this.generarRandoms}>
+                    Cargar datos...
+                </button>
                 <form onSubmit={this.generarTabla}>
-                    <label>Seleccione número </label>
+                    <label>Seleccione número</label>
                     <select ref={this.selectNumero}>
-                        <option />
                         {
                             this.numeros.map((num, index) => {
                                 return (<option key={index}>{num}</option>)
                             })
                         }
                     </select>
-                    <button>Mostrar Tabla</button>
-                    <table border={"1px"}>
-                        <thead>
-                            <tr>
-                                <th>Operación</th>
-                                <th>Resultado</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                this.state.tabla.map((fila, index) => {
-                                    return (<tr key={index}>
-                                        <td>{fila.operacion}</td>
-                                        <td>{fila.resultado}</td>
-                                    </tr>)
-                                })
-                            }
-                        </tbody>
-                    </table>
+                    <button>Mostrar tabla</button>
                 </form>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Operación</th>
+                            <th>Resultado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            this.state.tabla.map((fila, index) => {
+                                return (fila)
+                            })
+                        }
+                    </tbody>
+                </table>
             </div>
         )
     }
-}
+} 

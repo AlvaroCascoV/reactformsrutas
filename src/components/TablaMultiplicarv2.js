@@ -1,16 +1,9 @@
 import React, { Component } from 'react'
 
 export default class TablaMultiplicarv2 extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            tabla: [],
-            select: []
-        }
-        this.selectNumero = React.createRef();
-        this.generarSelect();
-    }
-    generarSelect = () => {
+    selectNumero = React.createRef();
+    generarSelect = (event) => {
+        event.preventDefault();
         console.log("select generado")
         let aux = []
         for (let i = 0; i <= 5; i++) {
@@ -38,6 +31,10 @@ export default class TablaMultiplicarv2 extends Component {
         this.setState({
             tabla: aux
         })
+    }
+    state={
+        tabla:[],
+        select:[]
     }
     render() {
         return (
